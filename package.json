@@ -1,0 +1,15 @@
+{
+	"name": "ratingsplus-stremio-addon",
+	"version": "0.0.1",
+	"description": "Browse Movies by ratings from 1 to 9",
+	"scripts": {
+		"start": "node src/server.js"
+	},
+	"dependencies": {
+		"dotenv": "^6.2.0",
+		"imdb-api": "^4.0.2",
+		"request": "^2.88.0",
+		"stremio-addon-sdk": "git+https://github.com/Stremio/stremio-addon-sdk.git",
+		"tar": "^4.4.8"
+	}
+}
