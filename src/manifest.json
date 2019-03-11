@@ -1,8 +1,8 @@
 {
     "id": "community.ratingsplusaddon",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "Ratings+",
-    "description": "Browse Movies by ratings from 1 to 9",
+    "description": "Browse Movies by ratings from 1 to 9 out of 10",
     "logo": "https://stremio-ratingsplus.ga/static/icon.png",
     "background": "https://stremio-ratingsplus.ga/static/background.png",
     "contactEmail": "tymmesyde@gmail.com",
@@ -16,7 +16,7 @@
         {
             "type": "movie",
             "name": "Ratings+",
-            "id": "ratings+",
+            "id": "ratings",
             "extraRequired": [
                 "genre"
             ],

@@ -4,20 +4,21 @@ const https = require('https');
 const zlib = require('zlib');
 const imdb = require('imdb-api')
 
-const { API_KEY, IMDB_RATINGS, DATASET_PATH } = process.env;
+const { API_KEY, IMDB_RATINGS, DATASET_PATH, CACHE_INTERVAL } = process.env;
 const client = new imdb.Client({ apiKey: API_KEY });
 
 class IMDB {
 
-    init() {
-        return new Promise(async (resolve, reject) => {
+    cacheDataset() {
+        return new Promise(async resolve => {
             console.log('Downloading dataset ...');
             const data = await this.fetchDataSet(IMDB_RATINGS);
-            if (!data) reject('Could not fetch dataset ...');
+            if (!data) return resolve(false);
+            console.log('Dataset downloaded !');
             const save = await this.saveDataSet(data, DATASET_PATH);
-            if (!save) reject('Could not save dataset ...');
-
-            resolve('Datasets saved !');
+            if (!save) return resolve(false);
+            console.log('Dataset saved !');
+            return resolve(true);
         });
     }
 

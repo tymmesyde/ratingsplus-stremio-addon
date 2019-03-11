@@ -1,23 +1,16 @@
 #!/usr/bin/env node
 require('dotenv').config()
 const { serveHTTP } = require("stremio-addon-sdk")
-const IMDB = require('./imdb')
 const addonInterface = require('./addon')
+const IMDB = require('./imdb')
 
+const imdb = new IMDB();
 const { PORT, CACHE_INTERVAL } = process.env
-const imdb = new IMDB()
 
-function refreshServer(serve = false) {
-    imdb.init().then(res => {
-        console.log(res)
-        if (serve) serveHTTP(addonInterface, { port: PORT, static: '/static' })
-    }).catch(e => {
-        console.error(e)
-    })
-}
+imdb.cacheDataset().then(() => {
+    serveHTTP(addonInterface, { port: PORT, static: '/static' })
+});
 
 setInterval(() => {
-    refreshServer()
+    imdb.cacheDataset()
 }, CACHE_INTERVAL)
-
-refreshServer(true)
