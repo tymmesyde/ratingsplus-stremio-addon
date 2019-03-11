@@ -4,7 +4,8 @@
 	"description": "Browse Movies by ratings from 1 to 9 out of 10",
 	"scripts": {
 		"start": "node src/server.js",
-		"test": "tape test/*"
+		"test": "tape test/*",
+		"publish": "node ./publish.js"
 	},
 	"dependencies": {
 		"dotenv": "^6.2.0",
