@@ -53,7 +53,7 @@ tape('it should return empty metas array', (t) => {
 })
 
 tape('it should return empty metas array', (t) => {
-    addonClient.get('catalog', 'movie', 'ratings', 'genre=11/10').then(res => {
+    addonClient.get('catalog', 'movie', 'ratings', 'genre=11 stars').then(res => {
         t.ok(res, 'has response')
         t.ok(res.metas, 'has metas')
         t.equal(res.metas.length, 0, 'should be empty')
@@ -62,7 +62,7 @@ tape('it should return empty metas array', (t) => {
 })
 
 tape('it should return metas movies', (t) => {
-    addonClient.get('catalog', 'movie', 'ratings', 'genre=1/10').then(res => {
+    addonClient.get('catalog', 'movie', 'ratings', 'genre=1 star').then(res => {
         t.ok(res, 'has response')
         t.ok(res.metas, 'has metas')
         t.notEqual(res.metas.length, 0, 'length should be superior to 0')

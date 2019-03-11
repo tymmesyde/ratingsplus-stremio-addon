@@ -12,7 +12,7 @@ addon.defineCatalogHandler(async ({ type, id, extra }) => {
 	let metas = [];
 
 	if (type === 'movie' && id === 'ratings' && genre) {
-		const rating = parseFloat(genre.replace('/10', ''));
+		const rating = parseFloat(genre);		
 
 		if (rating > 0 && rating < 10) {
 			const items = await imdb.getItems(rating, (skip ? parseFloat(skip) : 0), 60);

@@ -1,6 +1,6 @@
 {
 	"name": "ratingsplus-stremio-addon",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Browse Movies by ratings from 1 to 9 out of 10",
 	"scripts": {
 		"start": "node src/server.js",
